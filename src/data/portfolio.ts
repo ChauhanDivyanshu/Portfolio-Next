@@ -1,0 +1,367 @@
+export const personal = {
+  name: "Divyanshu Chauhan",
+  title: "Full Stack AI Engineer",
+  tagline: "Building intelligent solutions where AI meets real-world engineering",
+  email: "divyanshuchauhan1200@gmail.com",
+  phone: "+91 9548022166",
+  location: "Noida, India",
+  bio: "Passionate Full Stack AI Engineer with 2+ years of experience building production-grade AI systems, defence-sector platforms, and enterprise applications. Founder of VerifyLayer AI.",
+  social: {
+    github: "https://github.com/ChauhanDivyanshu",
+    linkedin: "https://www.linkedin.com/in/iamdivyanshuchauhan/",
+    linktree: "https://linktr.ee/Divyanshuchauhan10",
+  },
+  availableFor: "Full-time · Freelance · Collaborations",
+};
+
+export const roles = [
+  "Full Stack AI Engineer",
+  "Python Developer",
+  "Java Developer",
+  "RAG Systems Expert",
+  "LLM Integration Specialist",
+  "NFC/RFID Developer",
+  "Founder @ VerifyLayer AI",
+];
+
+export const stats = [
+  { value: "2+", label: "Years", suffix: "Experience" },
+  { value: "15+", label: "Projects", suffix: "Delivered" },
+  { value: "50K+", label: "Users", suffix: "Impacted" },
+  { value: "6+", label: "Certifications", suffix: "Earned" },
+];
+
+export const highlights = [
+  {
+    icon: "Sparkles",
+    title: "AI Engineer",
+    description: "Building RAG systems & LLM integrations",
+    gradient: "from-blue-500 to-cyan-500",
+  },
+  {
+    icon: "Rocket",
+    title: "Founder",
+    description: "VerifyLayer AI — Scam protection platform",
+    gradient: "from-purple-500 to-pink-500",
+  },
+  {
+    icon: "Shield",
+    title: "Defence Tech",
+    description: "HAL Korwa SITS & Army Logistics",
+    gradient: "from-orange-500 to-red-500",
+  },
+  {
+    icon: "Cpu",
+    title: "IoT Systems",
+    description: "NFC/RFID Access Control Systems",
+    gradient: "from-green-500 to-emerald-500",
+  },
+];
+
+export const skills = {
+  languages: [
+    { name: "Python", logo: "https://cdn.simpleicons.org/python" },
+    { name: "TypeScript", logo: "https://cdn.simpleicons.org/typescript" },
+    { name: "JavaScript", logo: "https://cdn.simpleicons.org/javascript" },
+    { name: "Java", logo: "https://cdn.simpleicons.org/openjdk/000000" },
+    { name: "SQL", logo: "https://cdn.simpleicons.org/mysql" },
+  ],
+  ai: [
+    { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991" },
+    { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/1C3C3C" },
+    { name: "LangGraph", logo: "https://cdn.simpleicons.org/langgraph/1C3C3C" },
+    { name: "HuggingFace", logo: "https://cdn.simpleicons.org/huggingface/FFD21E" },
+    { name: "TensorFlow", logo: "https://cdn.simpleicons.org/tensorflow" },
+    { name: "PyTorch", logo: "https://cdn.simpleicons.org/pytorch" },
+    { name: "Ollama", logo: "https://cdn.simpleicons.org/ollama/000000" },
+    { name: "Gemini", logo: "https://cdn.simpleicons.org/googlegemini/8E75B2" },
+  ],
+  backend: [
+    { name: "FastAPI", logo: "https://cdn.simpleicons.org/fastapi" },
+    { name: "Flask", logo: "https://cdn.simpleicons.org/flask/000000" },
+    { name: "Django", logo: "https://cdn.simpleicons.org/django/092E20" },
+    { name: "Node.js", logo: "https://cdn.simpleicons.org/nodedotjs" },
+    { name: "Spring Boot", logo: "https://cdn.simpleicons.org/springboot" },
+  ],
+  frontend: [
+    { name: "React", logo: "https://cdn.simpleicons.org/react" },
+    { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/000000" },
+    { name: "Tailwind", logo: "https://cdn.simpleicons.org/tailwindcss" },
+    { name: "Framer Motion", logo: "https://cdn.simpleicons.org/framer" },
+  ],
+  database: [
+    { name: "PostgreSQL", logo: "https://cdn.simpleicons.org/postgresql" },
+    { name: "MongoDB", logo: "https://cdn.simpleicons.org/mongodb" },
+    { name: "MySQL", logo: "https://cdn.simpleicons.org/mysql" },
+    { name: "Redis", logo: "https://cdn.simpleicons.org/redis" },
+    { name: "pgvector", logo: "https://cdn.simpleicons.org/postgresql" },
+  ],
+  devops: [
+    { name: "Docker", logo: "https://cdn.simpleicons.org/docker" },
+    { name: "AWS", logo: "https://cdn.simpleicons.org/amazonwebservices/FF9900" },
+    { name: "Jenkins", logo: "https://cdn.simpleicons.org/jenkins/D24939" },
+    { name: "GitHub", logo: "https://cdn.simpleicons.org/github/000000" },
+    { name: "Vercel", logo: "https://cdn.simpleicons.org/vercel/000000" },
+  ],
+};
+
+export const projects = [
+  {
+    id: "rag-chatbot",
+    title: "RAG AI Chatbot System",
+    subtitle: "Production-grade retrieval augmented generation",
+    company: "Infosware Pvt. Ltd.",
+    period: "2025 - Present",
+    status: "Live in Production",
+    gradient: "from-blue-600 via-blue-500 to-cyan-500",
+    iconType: "bot",
+    description: "Built a complete RAG chatbot combining large language models with custom knowledge bases. Features hybrid search (pgvector + BM25), async processing with Redis/Celery, and multilingual support.",
+    highlights: [
+      { metric: "30-40%", label: "Accuracy Boost" },
+      { metric: "35%", label: "Latency Reduced" },
+      { metric: "50%", label: "Faster Processing" },
+      { metric: "25%", label: "Cost Savings" },
+    ],
+    features: [
+      "Full RAG pipeline: ingestion → embedding → retrieval → response",
+      "Hybrid search combining pgvector and BM25 algorithms",
+      "Async processing with Redis + Celery workers",
+      "Multilingual support for global user reach",
+    ],
+    tech: ["Python", "FastAPI", "LangChain", "pgvector", "PostgreSQL", "Redis", "Celery", "OpenAI"],
+    github: "https://github.com/ChauhanDivyanshu/RAGAI-Chat-Bot",
+    tag: "AI Product",
+  },
+  {
+    id: "nfc-app",
+    title: "ACR122U NFC Desktop Application",
+    subtitle: "Professional NFC card management tool",
+    company: "Personal Project",
+    period: "2024",
+    status: "Open Source",
+    gradient: "from-emerald-600 via-teal-500 to-cyan-500",
+    iconType: "nfc",
+    description: "Full-featured desktop app for NFC card operations. Real-time detection via PC/SC protocol, NDEF records support, APDU commands, and modern dark theme UI.",
+    highlights: [
+      { metric: "5+", label: "Card Types" },
+      { metric: "Real-time", label: "Detection" },
+      { metric: "NDEF+", label: "APDU Support" },
+      { metric: "Dark UI", label: "Modern Design" },
+    ],
+    features: [
+      "Real-time NFC card detection via PC/SC protocol",
+      "Read & Write NDEF records — Text, URL, vCard",
+      "Raw APDU command support for low-level access",
+      "UID, ATR, MIFARE/NTAG type detection",
+    ],
+    tech: ["Python", "CustomTkinter", "PC/SC", "NFC/NDEF", "APDU", "pyscard"],
+    github: "https://github.com/ChauhanDivyanshu/ACR122-Desktop-App",
+    tag: "Open Source",
+  },
+  {
+    id: "army-logistics",
+    title: "Indian Army Logistics System",
+    subtitle: "Enterprise military inventory management",
+    company: "Defence Project",
+    period: "2025",
+    status: "Live & Deployed",
+    gradient: "from-orange-600 via-red-500 to-pink-500",
+    iconType: "shield",
+    description: "Enterprise-grade military logistics platform managing complete inventory lifecycle from warehouse storage to field deployment. 4 user roles with role-based access control.",
+    highlights: [
+      { metric: "100%", label: "Error Reduction" },
+      { metric: "4", label: "User Roles" },
+      { metric: "8", label: "Desktop Apps" },
+      { metric: "Real-time", label: "Sync" },
+    ],
+    features: [
+      "Normalized PostgreSQL with 8 tables & automated triggers",
+      "15+ Flask REST endpoints with WebSocket for real-time sync",
+      "8 Tkinter desktop apps with Army-themed UI",
+      "RFID/NFC integration for secure tracking",
+    ],
+    tech: ["Python", "Flask", "Tkinter", "PostgreSQL", "RFID/NFC", "MIFARE 1K", "WebSocket"],
+    tag: "Defence Sector",
+  },
+  {
+    id: "hal-sits",
+    title: "SITS - HAL Korwa Avionics",
+    subtitle: "Defence traceability system",
+    company: "via Thinkbotic",
+    period: "2025",
+    status: "Defence Programme",
+    gradient: "from-slate-700 via-slate-600 to-slate-800",
+    iconType: "plane",
+    description: "Backend engineering for defence-sector inventory traceability at HAL Korwa Avionics Division. Designed master data model with zone-based transfer reconciliation.",
+    highlights: [
+      { metric: "5", label: "Hierarchy Levels" },
+      { metric: "Zone-based", label: "Transfer Logic" },
+      { metric: "FIFO", label: "Issue Logic" },
+      { metric: "Audit", label: "Compliance" },
+    ],
+    features: [
+      "5-level hierarchy master data model (project & batch aware)",
+      "Zone-based Transfer ID reconciliation logic",
+      "FIFO issue logic with approval workflows",
+      "Military-grade audit trails",
+    ],
+    tech: ["Python", "PostgreSQL", "RFID/IoT", "Event-Driven", "REST API"],
+    tag: "Defence Programme",
+  },
+  {
+    id: "smart-access",
+    title: "RFID/NFC Smart Access System",
+    subtitle: "Enterprise security & access control",
+    company: "Infosware Pvt. Ltd.",
+    period: "2025",
+    status: "Production",
+    gradient: "from-cyan-600 via-blue-500 to-indigo-500",
+    iconType: "lock",
+    description: "Comprehensive smart access control using RFID/NFC. Features NTAG213/216 authentication, password protection, memory-page validation, and automated access decisions.",
+    highlights: [
+      { metric: "NTAG213/216", label: "Support" },
+      { metric: "Real-time", label: "Validation" },
+      { metric: "Auto", label: "Decisions" },
+      { metric: "Secure", label: "Auth" },
+    ],
+    features: [
+      "NTAG213/216 authentication with password protection",
+      "Real-time backend validation for access permissions",
+      "Memory-page validation to prevent write inconsistencies",
+      "Automated access decisions with error handling",
+    ],
+    tech: ["Python", "REST APIs", "NTAG213/216", "APDU", "PC/SC"],
+    tag: "IoT / Hardware",
+  },
+  {
+    id: "cicd",
+    title: "CI/CD Deployment Pipeline",
+    subtitle: "Automated DevOps infrastructure",
+    company: "AR Electricals",
+    period: "2024",
+    status: "DevOps",
+    gradient: "from-indigo-600 via-purple-500 to-pink-500",
+    iconType: "settings",
+    description: "Automated CI/CD pipeline reducing deployment time by 80% (30 min → 5 min). Zero-downtime deployments with Jenkins, Docker, and AWS.",
+    highlights: [
+      { metric: "80%", label: "Time Saved" },
+      { metric: "Zero", label: "Downtime" },
+      { metric: "Auto", label: "Rollback" },
+      { metric: "Full", label: "CI/CD" },
+    ],
+    features: [
+      "Jenkins pipeline for fully automated builds",
+      "Docker containerization for consistency",
+      "AWS EC2 & S3 for scalable deployment",
+      "Zero-downtime with automated rollback",
+    ],
+    tech: ["Jenkins", "Docker", "AWS EC2", "AWS S3", "Flask", "Bash"],
+    tag: "DevOps",
+  },
+];
+
+export const experience = [
+  {
+    role: "Full Stack AI Engineer",
+    company: "Infosware Private Limited",
+    location: "Noida",
+    period: "Mar 2025 – Present",
+    current: true,
+    achievements: [
+      "Developed RAG-based AI chatbot improving accuracy by 30-40%",
+      "Reduced latency by 35% using hybrid search (pgvector + BM25)",
+      "Built scalable backend with FastAPI and Spring Boot",
+      "Implemented async processing (Redis + Celery), 50% faster",
+      "Developed RFID/NFC Smart Access System with NTAG213/216",
+      "Architected Indian Army Logistics System",
+      "Backend Developer — SITS (HAL Korwa) defence programme",
+    ],
+  },
+  {
+    role: "QA Software Engineer (Python Automation)",
+    company: "Tekshapers (Magic EdTech)",
+    location: "Noida",
+    period: "Apr 2024 – Feb 2025",
+    current: false,
+    achievements: [
+      "Performed EDC closure activities in production",
+      "Improved testing efficiency by 40% through Python automation",
+      "Reduced defect leakage by 30%, ensured 99.9% reliability",
+      "Designed Python data processing pipelines for EPUB analysis",
+    ],
+  },
+  {
+    role: "DevOps Intern",
+    company: "AR Electricals",
+    location: "Noida",
+    period: "Feb 2024 – Aug 2024",
+    current: false,
+    achievements: [
+      "Configured Jenkins for CI/CD pipeline",
+      "Reduced deployment time by 70%",
+      "Automated workflows reducing manual effort by 50%",
+      "Worked with Docker and AWS deployment",
+    ],
+  },
+];
+
+export const education = [
+  {
+    degree: "Master of Computer Applications (MCA)",
+    institution: "Gurukul Kangri Deemed University",
+    location: "Haridwar, Uttarakhand",
+    period: "2022 - 2024",
+    cgpa: "8.62",
+    focus: ["Advanced Programming", "AI & Machine Learning", "Data Structures", "Software Engineering"],
+  },
+  {
+    degree: "Bachelor of Science in Computer Science",
+    institution: "Gurukul Kangri Deemed University",
+    location: "Haridwar, Uttarakhand",
+    period: "2019 - 2022",
+    cgpa: "8.46",
+    focus: ["Computer Fundamentals", "Programming", "Database Management", "Web Technologies"],
+  },
+];
+
+export const certifications = [
+  { name: "RAG and Agentic AI Professional", issuer: "IBM" },
+  { name: "Agentic AI with LangChain & LangGraph", issuer: "IBM" },
+  { name: "Develop Generative AI Applications", issuer: "IBM" },
+  { name: "Oracle Cloud DevOps Professional 2025", issuer: "Oracle" },
+  { name: "Introduction to DevOps", issuer: "Microsoft" },
+  { name: "TCS iON Career Edge", issuer: "TCS" },
+];
+
+export const achievements = [
+  {
+    icon: "🚀",
+    title: "Founded VerifyLayer AI",
+    description: "India's AI-powered scam protection platform with 50,000+ users protected",
+  },
+  {
+    icon: "🛡️",
+    title: "Defence Sector Contribution",
+    description: "Backend engineer on SITS for HAL Korwa Avionics Division",
+  },
+  {
+    icon: "⚡",
+    title: "3 Days → 2 Hours",
+    description: "Python automation reduced accessibility validation time dramatically",
+  },
+  {
+    icon: "🏆",
+    title: "Innovation Recognition",
+    description: "Recognized for intelligent automation reducing manual QA effort",
+  },
+  {
+    icon: "💼",
+    title: "Enterprise Impact",
+    description: "Architected Indian Army Logistics System for military inventory",
+  },
+  {
+    icon: "⭐",
+    title: "Client Appreciation",
+    description: "Received formal appreciation for high-quality delivery",
+  },
+];
