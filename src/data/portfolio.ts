@@ -115,6 +115,7 @@ export const projects = [
     status: "Live in Production",
     gradient: "from-blue-600 via-blue-500 to-cyan-500",
     iconType: "bot",
+    visualType: "ai-pipeline", // NEW
     description: "Built a complete RAG chatbot combining large language models with custom knowledge bases. Features hybrid search (pgvector + BM25), async processing with Redis/Celery, and multilingual support.",
     highlights: [
       { metric: "30-40%", label: "Accuracy Boost" },
@@ -141,6 +142,7 @@ export const projects = [
     status: "Open Source",
     gradient: "from-emerald-600 via-teal-500 to-cyan-500",
     iconType: "nfc",
+    visualType: "backend-api", // NEW
     description: "Full-featured desktop app for NFC card operations. Real-time detection via PC/SC protocol, NDEF records support, APDU commands, and modern dark theme UI.",
     highlights: [
       { metric: "5+", label: "Card Types" },
@@ -167,6 +169,7 @@ export const projects = [
     status: "Live & Deployed",
     gradient: "from-orange-600 via-red-500 to-pink-500",
     iconType: "shield",
+    visualType: "database-schema", // NEW
     description: "Enterprise-grade military logistics platform managing complete inventory lifecycle from warehouse storage to field deployment. 4 user roles with role-based access control.",
     highlights: [
       { metric: "100%", label: "Error Reduction" },
@@ -192,6 +195,7 @@ export const projects = [
     status: "Defence Programme",
     gradient: "from-slate-700 via-slate-600 to-slate-800",
     iconType: "plane",
+    visualType: "hierarchy-flow", // NEW
     description: "Backend engineering for defence-sector inventory traceability at HAL Korwa Avionics Division. Designed master data model with zone-based transfer reconciliation.",
     highlights: [
       { metric: "5", label: "Hierarchy Levels" },
@@ -217,6 +221,7 @@ export const projects = [
     status: "Production",
     gradient: "from-cyan-600 via-blue-500 to-indigo-500",
     iconType: "lock",
+    visualType: "auth-flow", // NEW
     description: "Comprehensive smart access control using RFID/NFC. Features NTAG213/216 authentication, password protection, memory-page validation, and automated access decisions.",
     highlights: [
       { metric: "NTAG213/216", label: "Support" },
@@ -231,7 +236,7 @@ export const projects = [
       "Automated access decisions with error handling",
     ],
     tech: ["Python", "REST APIs", "NTAG213/216", "APDU", "PC/SC"],
-    tag: "IoT / Hardware",
+    tag: "Backend / Security",
   },
   {
     id: "cicd",
@@ -242,6 +247,7 @@ export const projects = [
     status: "DevOps",
     gradient: "from-indigo-600 via-purple-500 to-pink-500",
     iconType: "settings",
+    visualType: "devops-pipeline", // NEW
     description: "Automated CI/CD pipeline reducing deployment time by 80% (30 min → 5 min). Zero-downtime deployments with Jenkins, Docker, and AWS.",
     highlights: [
       { metric: "80%", label: "Time Saved" },
