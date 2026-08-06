@@ -250,7 +250,7 @@ const VisualMap: Record<string, React.FC> = {
 
 export default function Projects() {
   return (
-    <section className="pt-28 pb-16 relative">
+    <section className="pt-20 pb-16 relative">
       <div className="container-custom">
         {/* Header */}
         <motion.div

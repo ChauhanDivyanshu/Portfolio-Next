@@ -40,7 +40,7 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIdx]);
 
   return (
-    <section className="min-h-screen pt-28 pb-12 relative overflow-hidden">
+    <section className="min-h-screen pt-20 pb-12 relative overflow-hidden">
       {/* Animated blobs */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
       <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{ animationDelay: '2s' }} />

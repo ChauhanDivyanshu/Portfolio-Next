@@ -1,159 +1,187 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { User, Sparkles, MapPin, Mail, Phone, Briefcase, GraduationCap, Heart, Target, Rocket, Users, BookOpen } from 'lucide-react';
+import { User, MapPin, Mail, Phone, Briefcase, GraduationCap, Heart, Target, Rocket, Users, BookOpen, Code2, Server, Sparkles } from 'lucide-react';
 import { personal } from '@/data/portfolio';
 
 const info = [
-  { icon: MapPin, label: 'Location', value: 'Noida, India', color: 'blue' },
-  { icon: Mail, label: 'Email', value: 'divyanshuchauhan1200@gmail.com', color: 'purple' },
-  { icon: Phone, label: 'Phone', value: '+91 9548022166', color: 'green' },
-  { icon: Briefcase, label: 'Experience', value: '2+ Years', color: 'orange' },
-  { icon: GraduationCap, label: 'Education', value: 'MCA · CGPA 8.62', color: 'pink' },
-  { icon: Heart, label: 'Available', value: 'Full-time · Freelance', color: 'red' },
+  { icon: MapPin, label: 'Location', value: 'Noida, India' },
+  { icon: Mail, label: 'Email', value: 'divyanshuchauhan1200@gmail.com' },
+  { icon: Phone, label: 'Phone', value: '+91 9548022166' },
+  { icon: Briefcase, label: 'Experience', value: '2+ Years' },
+  { icon: GraduationCap, label: 'Education', value: 'MCA · CGPA 8.62' },
+  { icon: Heart, label: 'Available', value: 'Full-time · Freelance' },
 ];
 
 const values = [
-  { 
-    icon: Target, 
-    title: 'Precision', 
-    description: 'Attention to detail in every line of code',
-    gradient: 'from-blue-500 to-cyan-500'
+  { icon: Target, title: 'Precision', description: 'Attention to detail in every line of code' },
+  { icon: Rocket, title: 'Innovation', description: 'Always exploring cutting-edge technologies' },
+  { icon: Users, title: 'Collaboration', description: 'Believe in teamwork and open communication' },
+  { icon: BookOpen, title: 'Learning', description: 'Continuous learning is my superpower' },
+];
+
+const currentFocus = [
+  {
+    icon: Sparkles,
+    title: 'AI Engineering',
+    tech: 'RAG · LangChain · OpenAI · pgvector',
   },
-  { 
-    icon: Rocket, 
-    title: 'Innovation', 
-    description: 'Always exploring cutting-edge technologies',
-    gradient: 'from-purple-500 to-pink-500'
+  {
+    icon: Server,
+    title: 'Backend Systems',
+    tech: 'FastAPI · Flask · PostgreSQL · Redis',
   },
-  { 
-    icon: Users, 
-    title: 'Collaboration', 
-    description: 'Believe in teamwork and open communication',
-    gradient: 'from-green-500 to-emerald-500'
-  },
-  { 
-    icon: BookOpen, 
-    title: 'Learning', 
-    description: 'Continuous learning is my superpower',
-    gradient: 'from-orange-500 to-red-500'
+  {
+    icon: Code2,
+    title: 'Full Stack Development',
+    tech: 'Next.js · React · TypeScript · Tailwind',
   },
 ];
 
-const colorMap: Record<string, string> = {
-  blue: 'from-blue-500 to-cyan-500',
-  purple: 'from-purple-500 to-pink-500',
-  green: 'from-green-500 to-emerald-500',
-  orange: 'from-orange-500 to-red-500',
-  pink: 'from-pink-500 to-rose-500',
-  red: 'from-red-500 to-orange-500',
-};
-
 export default function About() {
   return (
-    <section className="pt-28 pb-16 relative">
+    <section className="pt-20 pb-16 relative">
       <div className="container-custom">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8"
+          className="mb-10"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full mb-4 shadow-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-white border border-slate-200 rounded-full mb-5 shadow-sm">
             <User size={14} className="text-blue-600" />
             <span className="text-xs font-semibold text-slate-700">About Me</span>
           </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight font-display">
-            Crafting <span className="gradient-text">Digital Experiences</span>
+            Full Stack AI Engineer
             <br />
-            with AI &amp; Engineering
+            <span className="gradient-text">Based in India</span>
           </h1>
 
-          <p className="text-slate-600 text-base md:text-lg max-w-3xl leading-relaxed">
-            {personal.bio}
-          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full" />
         </motion.div>
 
-        {/* Story Cards */}
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
+        {/* Bio Cards - Clean Minimal */}
+        <div className="grid md:grid-cols-1 gap-4 mb-10">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl p-6 md:p-8 text-white"
+            className="bg-blue-50/50 border-l-4 border-blue-500 rounded-r-2xl p-6"
           >
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
-            <div className="relative">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-4">
-                <Briefcase size={22} />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 font-display">Current Role</h3>
-              <p className="text-white/90 leading-relaxed text-sm">
-                Working as <strong>Full Stack AI Engineer</strong> at <strong>Infosware Pvt. Ltd.</strong>, building scalable AI-driven applications. Contributing to <strong>RAG systems</strong>, backend platforms, and <strong>defence-sector inventory systems</strong>.
-              </p>
-            </div>
+            <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+              I am currently working as <strong className="text-slate-900">Full Stack AI Engineer at Infosware Pvt. Ltd.</strong>, where I focus on building scalable AI-driven applications, RAG systems, and enterprise backend platforms. I have contributed to defence-sector projects and delivered high-performance solutions across multiple domains.
+            </p>
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl p-6 md:p-8 text-white"
+            transition={{ delay: 0.1 }}
+            className="bg-slate-50 border-l-4 border-slate-400 rounded-r-2xl p-6"
           >
-            <div className="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -translate-y-20 translate-x-20" />
-            <div className="relative">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-4">
-                <Sparkles size={22} />
-              </div>
-              <h3 className="text-2xl font-bold mb-3 font-display">Founder Journey</h3>
-              <p className="text-white/90 leading-relaxed text-sm">
-                Founder of <strong>VerifyLayer AI</strong> — an AI-powered scam detection &amp; identity protection platform protecting <strong>50,000+ Indians</strong> daily. Combining AI intelligence with real-world engineering.
-              </p>
-            </div>
+            <p className="text-slate-700 text-base md:text-lg leading-relaxed">
+              As <strong className="text-slate-900">Founder of VerifyLayer AI</strong>, I am building India&apos;s AI-powered scam protection platform serving 50,000+ users. I am passionate about leveraging modern AI technologies to solve real-world problems and always eager to learn and grow in the ever-evolving tech landscape.
+            </p>
           </motion.div>
         </div>
 
-        {/* Info Grid */}
+        {/* Current Focus */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mb-8"
+          className="mb-10"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 font-display">
-            Quick Info
-          </h2>
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center">
+              <Sparkles size={16} className="text-blue-600" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-display">
+              Current Focus
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-3">
+            {currentFocus.map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-300 hover:shadow-md transition-all"
+                >
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-3">
+                    <Icon size={18} className="text-slate-700" />
+                  </div>
+                  <h3 className="font-bold text-slate-900 mb-1">{item.title}</h3>
+                  <p className="text-xs text-slate-500 font-mono">{item.tech}</p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Quick Info Grid - Minimal */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-10"
+        >
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center">
+              <User size={16} className="text-purple-600" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-display">
+              Quick Info
+            </h2>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-            {info.map(({ icon: Icon, label, value, color }, i) => (
+            {info.map(({ icon: Icon, label, value }, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
+                initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                whileHover={{ y: -3 }}
-                className="bg-white border border-slate-200 rounded-2xl p-4 hover:shadow-lg transition-all"
+                className="bg-white border border-slate-200 rounded-xl p-4 hover:border-slate-300 hover:shadow-sm transition-all"
               >
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${colorMap[color]} flex items-center justify-center mb-3`}>
-                  <Icon size={18} className="text-white" />
+                <div className="flex items-start gap-3">
+                  <div className="w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center flex-shrink-0">
+                    <Icon size={16} className="text-slate-700" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="text-xs text-slate-500 font-medium mb-0.5">{label}</div>
+                    <div className="text-sm font-bold text-slate-900 truncate">{value}</div>
+                  </div>
                 </div>
-                <div className="text-xs text-slate-500 font-medium mb-1">{label}</div>
-                <div className="text-sm font-bold text-slate-900 truncate">{value}</div>
               </motion.div>
             ))}
           </div>
         </motion.div>
 
-        {/* Values - No Emojis, Using Icons */}
+        {/* Values - Clean Design */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 font-display">
-            What I Value
-          </h2>
+          <div className="flex items-center gap-2 mb-5">
+            <div className="w-8 h-8 rounded-lg bg-green-50 flex items-center justify-center">
+              <Heart size={16} className="text-green-600" />
+            </div>
+            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 font-display">
+              What I Value
+            </h2>
+          </div>
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
             {values.map((v, i) => {
               const Icon = v.icon;
@@ -165,10 +193,10 @@ export default function About() {
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
                   whileHover={{ y: -3 }}
-                  className="group bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-lg hover:border-blue-300 transition-all"
+                  className="bg-white border border-slate-200 rounded-2xl p-5 hover:border-blue-300 hover:shadow-md transition-all"
                 >
-                  <div className={`w-12 h-12 mx-auto mb-3 rounded-2xl bg-gradient-to-br ${v.gradient} flex items-center justify-center group-hover:scale-110 transition-transform`}>
-                    <Icon size={22} className="text-white" />
+                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center mb-3">
+                    <Icon size={18} className="text-slate-700" />
                   </div>
                   <div className="font-bold text-slate-900 mb-1">{v.title}</div>
                   <div className="text-xs text-slate-600 leading-snug">{v.description}</div>
