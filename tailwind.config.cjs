@@ -41,3 +41,37 @@ module.exports = {
   },
   plugins: [],
 };
+
+// tailwind.config.js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  safelist: [
+    // Project gradient classes (dynamic)
+    'from-blue-600', 'via-blue-500', 'to-cyan-500',
+    'from-emerald-600', 'via-teal-500',
+    'from-orange-600', 'via-red-500', 'to-pink-500',
+    'from-slate-700', 'via-slate-600', 'to-slate-800',
+    'from-cyan-600', 'to-indigo-500',
+    'from-indigo-600', 'via-purple-500',
+    // Skills gradients
+    'from-blue-500', 'to-cyan-500',
+    'from-purple-500', 'to-pink-500',
+    'from-orange-500', 'to-red-500',
+    'from-green-500', 'to-emerald-500',
+    'from-indigo-500', 'to-blue-500',
+    'to-teal-500',
+    // Pattern for all gradient combos
+    {
+      pattern: /(from|via|to)-(slate|gray|zinc|red|orange|amber|yellow|lime|green|emerald|teal|cyan|sky|blue|indigo|violet|purple|fuchsia|pink|rose)-(400|500|600|700|800)/,
+    },
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};

@@ -53,7 +53,7 @@ export default function Certifications() {
                   <Icon className="text-white" size={20} />
                 </div>
                 <div>
-                  <h4 className="text-sm font-semibold text-slate-900 mb-0.5">{cert.title}</h4>
+                  <h4 className="text-sm font-semibold text-slate-900 mb-0.5">{cert.name}</h4>
                   <p className="text-xs text-slate-500">{cert.issuer}</p>
                 </div>
               </motion.div>

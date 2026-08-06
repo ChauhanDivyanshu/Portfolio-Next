@@ -79,13 +79,17 @@ export default function Skills() {
                       className="group relative bg-white border border-slate-200 rounded-2xl p-3 flex flex-col items-center gap-2 hover:shadow-lg hover:border-blue-400 transition-all cursor-pointer"
                     >
                       <div className="w-10 h-10 flex items-center justify-center">
-                        <Image
+                        <img
                           src={skill.logo}
                           alt={skill.name}
                           width={36}
                           height={36}
-                          className="object-contain group-hover:scale-110 transition-transform"
-                          unoptimized
+                          className="object-contain group-hover:scale-110 transition-transform max-w-full max-h-full"
+                          onError={(e) => {
+                            const target = e.currentTarget as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(skill.name)}&background=6366f1&color=fff&size=64&bold=true&format=svg`;
+                          }}
                         />
                       </div>
                       <span className="text-[11px] font-semibold text-slate-700 text-center leading-tight">

@@ -7,9 +7,10 @@ import { personal } from '@/data/portfolio';
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-200 bg-white/50 backdrop-blur">
+    <footer className="mt-20 border-t border-slate-200 bg-white">
       <div className="container-custom py-10">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
+          {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="text-2xl font-bold text-slate-900 mb-3 font-display">
               {personal.name}
@@ -18,20 +19,39 @@ export default function Footer() {
               {personal.bio}
             </p>
             <div className="flex items-center gap-3">
-              <a href={personal.social.github} target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-100 hover:bg-slate-900 hover:text-white rounded-xl flex items-center justify-center transition-all">
+              <a
+                href={personal.social.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+                className="w-10 h-10 bg-slate-100 text-slate-700 hover:bg-slate-900 hover:text-white rounded-xl flex items-center justify-center transition-all"
+              >
                 <FaGithub size={16} />
               </a>
-              <a href={personal.social.linkedin} target="_blank" rel="noreferrer" className="w-10 h-10 bg-slate-100 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all">
+              <a
+                href={personal.social.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+                className="w-10 h-10 bg-slate-100 text-slate-700 hover:bg-blue-600 hover:text-white rounded-xl flex items-center justify-center transition-all"
+              >
                 <FaLinkedin size={16} />
               </a>
-              <a href={`mailto:${personal.email}`} className="w-10 h-10 bg-slate-100 hover:bg-red-500 hover:text-white rounded-xl flex items-center justify-center transition-all">
+              <a
+                href={`mailto:${personal.email}`}
+                aria-label="Email"
+                className="w-10 h-10 bg-slate-100 text-slate-700 hover:bg-red-500 hover:text-white rounded-xl flex items-center justify-center transition-all"
+              >
                 <Mail size={16} />
               </a>
             </div>
           </div>
 
+          {/* Navigation */}
           <div>
-            <h4 className="font-bold text-slate-900 mb-3 text-sm">Navigation</h4>
+            <h4 className="font-bold text-slate-900 mb-3 text-sm uppercase tracking-wider">
+              Navigation
+            </h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li><Link href="/about" className="hover:text-blue-600 transition-colors">About</Link></li>
               <li><Link href="/skills" className="hover:text-blue-600 transition-colors">Skills</Link></li>
@@ -41,15 +61,23 @@ export default function Footer() {
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h4 className="font-bold text-slate-900 mb-3 text-sm">Contact</h4>
+            <h4 className="font-bold text-slate-900 mb-3 text-sm uppercase tracking-wider">
+              Contact
+            </h4>
             <ul className="space-y-2 text-sm text-slate-600">
               <li className="flex items-start gap-2">
-                <Mail size={14} className="mt-1 flex-shrink-0" />
-                <a href={`mailto:${personal.email}`} className="hover:text-blue-600 transition-colors break-all">{personal.email}</a>
+                <Mail size={14} className="mt-1 flex-shrink-0 text-blue-600" />
+                <a
+                  href={`mailto:${personal.email}`}
+                  className="hover:text-blue-600 transition-colors break-all"
+                >
+                  {personal.email}
+                </a>
               </li>
               <li className="flex items-start gap-2">
-                <MapPin size={14} className="mt-1 flex-shrink-0" />
+                <MapPin size={14} className="mt-1 flex-shrink-0 text-blue-600" />
                 <span>{personal.location}</span>
               </li>
             </ul>

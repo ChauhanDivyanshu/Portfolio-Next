@@ -1,7 +1,10 @@
 import { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+export const revalidate = false;
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://divyanshu-portfolio.vercel.app';
+  const baseUrl = 'https://chauhandivyanshu.github.io/Portfolio-Next';
   const routes = ['', '/about', '/skills', '/projects', '/experience', '/contact'];
 
   return routes.map((route) => ({
