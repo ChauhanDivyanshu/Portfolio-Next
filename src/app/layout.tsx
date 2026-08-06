@@ -21,13 +21,15 @@ export const metadata: Metadata = {
     "VerifyLayer AI",
   ],
   authors: [{ name: "Divyanshu Chauhan" }],
-  metadataBase: new URL("https://divyanshu-portfolio.vercel.app"),
+  metadataBase: new URL("https://chauhandivyanshu.github.io/Portfolio-Next"),
   openGraph: {
     title: "Divyanshu Chauhan - Full Stack AI Engineer",
     description: "Building intelligent AI solutions and defence-sector platforms",
-    url: "https://divyanshu-portfolio.vercel.app",
+    url: "https://chauhandivyanshu.github.io/Portfolio-Next",
+
     siteName: "Divyanshu Chauhan",
-    images: [{ url: "/divyanshu.jpg", width: 1200, height: 630 }],
+    images: [{ url: "/Portfolio-Next/divyanshu.jpg", width: 1200, height: 630 }],
+
     locale: "en_US",
     type: "website",
   },

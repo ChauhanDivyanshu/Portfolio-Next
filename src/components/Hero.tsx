@@ -4,15 +4,17 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Cpu } from 'lucide-react';
+import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Cpu, Code2 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personal, roles, stats, highlights } from '@/data/portfolio';
+import { withBasePath } from '@/lib/utils';
 
 const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
   Sparkles,
   Rocket,
   Shield,
   Cpu,
+  Code2,
 };
 
 export default function Hero() {
@@ -68,7 +70,7 @@ export default function Hero() {
 
             {/* Greeting */}
             <p className="text-slate-500 text-lg mb-3 font-display">
-              Hey there, I&apos;m
+              Hello, I&apos;m
             </p>
 
             {/* Name */}
@@ -78,12 +80,12 @@ export default function Hero() {
               <span className="gradient-text">Chauhan</span>
             </h1>
 
-            {/* Role */}
-            <div className="text-xl md:text-2xl text-slate-700 font-medium mb-6 h-8">
-              I build{' '}
-              <span className="text-blue-600 font-bold">
+            {/* Role with better structure */}
+            <div className="text-xl md:text-2xl text-slate-700 font-medium mb-6 min-h-[3rem] flex flex-wrap items-baseline gap-x-2">
+              <span>Building</span>
+              <span className="text-blue-600 font-bold inline-block min-w-[280px]">
                 {displayText}
-                <span className="animate-pulse">|</span>
+                <span className="animate-pulse text-blue-600">|</span>
               </span>
             </div>
 
@@ -154,7 +156,7 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* RIGHT - CIRCULAR PROFILE with Rings */}
+          {/* RIGHT - CIRCULAR PROFILE */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -162,23 +164,24 @@ export default function Hero() {
             className="relative w-full max-w-[380px] mx-auto aspect-square"
           >
             {/* Outer rotating gradient ring */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 animate-spin-slow" style={{ padding: '3px' }}>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500" style={{ padding: '3px' }}>
               <div className="w-full h-full rounded-full bg-white" />
             </div>
 
-            {/* Middle dashed rotating ring */}
-            <div className="absolute inset-3 rounded-full border-2 border-dashed border-blue-300/60 animate-[spin_20s_linear_reverse_infinite]" />
+            {/* Middle dashed ring */}
+            <div className="absolute inset-3 rounded-full border-2 border-dashed border-blue-300/60" />
 
-            {/* Inner Image Container - CIRCLE */}
+            {/* Inner Image Container */}
             <div className="absolute inset-6 rounded-full overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 shadow-2xl">
               <Image
-                src="/divyanshu.jpg"
+                src={withBasePath('/divyanshu.jpg')}
                 alt="Divyanshu Chauhan"
                 width={400}
                 height={400}
                 className="w-full h-full object-cover"
                 style={{ objectPosition: 'center 11%' }}
                 priority
+                unoptimized
               />
             </div>
 

@@ -15,13 +15,12 @@ export const personal = {
 };
 
 export const roles = [
-  "Full Stack AI Engineer",
-  "Python Developer",
-  "Java Developer",
-  "RAG Systems Expert",
-  "LLM Integration Specialist",
-  "NFC/RFID Developer",
-  "Founder @ VerifyLayer AI",
+  "AI-Powered Applications",
+  "Production-Grade RAG Systems",
+  "Scalable Backend APIs",
+  "Enterprise Platforms",
+  "Full Stack Products",
+  "DevOps Pipelines",
 ];
 
 export const stats = [
@@ -52,8 +51,8 @@ export const highlights = [
   },
   {
     icon: "Cpu",
-    title: "IoT Systems",
-    description: "NFC/RFID Access Control Systems",
+    title: "Backend Systems",
+    description: "REST APIs & Enterprise Solutions",
     gradient: "from-green-500 to-emerald-500",
   },
 ];
@@ -115,7 +114,7 @@ export const projects = [
     status: "Live in Production",
     gradient: "from-blue-600 via-blue-500 to-cyan-500",
     iconType: "bot",
-    visualType: "ai-pipeline", // NEW
+    visualType: "ai-pipeline",
     description: "Built a complete RAG chatbot combining large language models with custom knowledge bases. Features hybrid search (pgvector + BM25), async processing with Redis/Celery, and multilingual support.",
     highlights: [
       { metric: "30-40%", label: "Accuracy Boost" },
@@ -124,9 +123,9 @@ export const projects = [
       { metric: "25%", label: "Cost Savings" },
     ],
     features: [
-      "Full RAG pipeline: ingestion → embedding → retrieval → response",
+      "Full RAG pipeline: ingestion, embedding, retrieval, response",
       "Hybrid search combining pgvector and BM25 algorithms",
-      "Async processing with Redis + Celery workers",
+      "Async processing with Redis and Celery workers",
       "Multilingual support for global user reach",
     ],
     tech: ["Python", "FastAPI", "LangChain", "pgvector", "PostgreSQL", "Redis", "Celery", "OpenAI"],
@@ -142,7 +141,7 @@ export const projects = [
     status: "Open Source",
     gradient: "from-emerald-600 via-teal-500 to-cyan-500",
     iconType: "nfc",
-    visualType: "backend-api", // NEW
+    visualType: "backend-api",
     description: "Full-featured desktop app for NFC card operations. Real-time detection via PC/SC protocol, NDEF records support, APDU commands, and modern dark theme UI.",
     highlights: [
       { metric: "5+", label: "Card Types" },
@@ -152,7 +151,7 @@ export const projects = [
     ],
     features: [
       "Real-time NFC card detection via PC/SC protocol",
-      "Read & Write NDEF records — Text, URL, vCard",
+      "Read and Write NDEF records — Text, URL, vCard",
       "Raw APDU command support for low-level access",
       "UID, ATR, MIFARE/NTAG type detection",
     ],
@@ -169,7 +168,7 @@ export const projects = [
     status: "Live & Deployed",
     gradient: "from-orange-600 via-red-500 to-pink-500",
     iconType: "shield",
-    visualType: "database-schema", // NEW
+    visualType: "database-schema",
     description: "Enterprise-grade military logistics platform managing complete inventory lifecycle from warehouse storage to field deployment. 4 user roles with role-based access control.",
     highlights: [
       { metric: "100%", label: "Error Reduction" },
@@ -178,7 +177,7 @@ export const projects = [
       { metric: "Real-time", label: "Sync" },
     ],
     features: [
-      "Normalized PostgreSQL with 8 tables & automated triggers",
+      "Normalized PostgreSQL with 8 tables and automated triggers",
       "15+ Flask REST endpoints with WebSocket for real-time sync",
       "8 Tkinter desktop apps with Army-themed UI",
       "RFID/NFC integration for secure tracking",
@@ -195,7 +194,7 @@ export const projects = [
     status: "Defence Programme",
     gradient: "from-slate-700 via-slate-600 to-slate-800",
     iconType: "plane",
-    visualType: "hierarchy-flow", // NEW
+    visualType: "hierarchy-flow",
     description: "Backend engineering for defence-sector inventory traceability at HAL Korwa Avionics Division. Designed master data model with zone-based transfer reconciliation.",
     highlights: [
       { metric: "5", label: "Hierarchy Levels" },
@@ -204,7 +203,7 @@ export const projects = [
       { metric: "Audit", label: "Compliance" },
     ],
     features: [
-      "5-level hierarchy master data model (project & batch aware)",
+      "5-level hierarchy master data model (project and batch aware)",
       "Zone-based Transfer ID reconciliation logic",
       "FIFO issue logic with approval workflows",
       "Military-grade audit trails",
@@ -221,7 +220,7 @@ export const projects = [
     status: "Production",
     gradient: "from-cyan-600 via-blue-500 to-indigo-500",
     iconType: "lock",
-    visualType: "auth-flow", // NEW
+    visualType: "auth-flow",
     description: "Comprehensive smart access control using RFID/NFC. Features NTAG213/216 authentication, password protection, memory-page validation, and automated access decisions.",
     highlights: [
       { metric: "NTAG213/216", label: "Support" },
@@ -247,8 +246,8 @@ export const projects = [
     status: "DevOps",
     gradient: "from-indigo-600 via-purple-500 to-pink-500",
     iconType: "settings",
-    visualType: "devops-pipeline", // NEW
-    description: "Automated CI/CD pipeline reducing deployment time by 80% (30 min → 5 min). Zero-downtime deployments with Jenkins, Docker, and AWS.",
+    visualType: "devops-pipeline",
+    description: "Automated CI/CD pipeline reducing deployment time by 80% (30 min to 5 min). Zero-downtime deployments with Jenkins, Docker, and AWS.",
     highlights: [
       { metric: "80%", label: "Time Saved" },
       { metric: "Zero", label: "Downtime" },
@@ -258,7 +257,7 @@ export const projects = [
     features: [
       "Jenkins pipeline for fully automated builds",
       "Docker containerization for consistency",
-      "AWS EC2 & S3 for scalable deployment",
+      "AWS EC2 and S3 for scalable deployment",
       "Zero-downtime with automated rollback",
     ],
     tech: ["Jenkins", "Docker", "AWS EC2", "AWS S3", "Flask", "Bash"],
@@ -341,32 +340,32 @@ export const certifications = [
 
 export const achievements = [
   {
-    icon: "🚀",
+    icon: "Rocket",
     title: "Founded VerifyLayer AI",
     description: "India's AI-powered scam protection platform with 50,000+ users protected",
   },
   {
-    icon: "🛡️",
+    icon: "Shield",
     title: "Defence Sector Contribution",
     description: "Backend engineer on SITS for HAL Korwa Avionics Division",
   },
   {
-    icon: "⚡",
-    title: "3 Days → 2 Hours",
+    icon: "Zap",
+    title: "3 Days to 2 Hours",
     description: "Python automation reduced accessibility validation time dramatically",
   },
   {
-    icon: "🏆",
+    icon: "Trophy",
     title: "Innovation Recognition",
     description: "Recognized for intelligent automation reducing manual QA effort",
   },
   {
-    icon: "💼",
+    icon: "Briefcase",
     title: "Enterprise Impact",
     description: "Architected Indian Army Logistics System for military inventory",
   },
   {
-    icon: "⭐",
+    icon: "Star",
     title: "Client Appreciation",
     description: "Received formal appreciation for high-quality delivery",
   },

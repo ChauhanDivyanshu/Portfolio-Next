@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { User, Sparkles, MapPin, Mail, Phone, Briefcase, GraduationCap, Heart, Code } from 'lucide-react';
+import { User, Sparkles, MapPin, Mail, Phone, Briefcase, GraduationCap, Heart, Target, Rocket, Users, BookOpen } from 'lucide-react';
 import { personal } from '@/data/portfolio';
 
 const info = [
@@ -14,10 +14,30 @@ const info = [
 ];
 
 const values = [
-  { icon: '🎯', title: 'Precision', description: 'Attention to detail in every line of code' },
-  { icon: '🚀', title: 'Innovation', description: 'Always exploring cutting-edge technologies' },
-  { icon: '🤝', title: 'Collaboration', description: 'Believe in teamwork and open communication' },
-  { icon: '📚', title: 'Learning', description: 'Continuous learning is my superpower' },
+  { 
+    icon: Target, 
+    title: 'Precision', 
+    description: 'Attention to detail in every line of code',
+    gradient: 'from-blue-500 to-cyan-500'
+  },
+  { 
+    icon: Rocket, 
+    title: 'Innovation', 
+    description: 'Always exploring cutting-edge technologies',
+    gradient: 'from-purple-500 to-pink-500'
+  },
+  { 
+    icon: Users, 
+    title: 'Collaboration', 
+    description: 'Believe in teamwork and open communication',
+    gradient: 'from-green-500 to-emerald-500'
+  },
+  { 
+    icon: BookOpen, 
+    title: 'Learning', 
+    description: 'Continuous learning is my superpower',
+    gradient: 'from-orange-500 to-red-500'
+  },
 ];
 
 const colorMap: Record<string, string> = {
@@ -44,10 +64,10 @@ export default function About() {
             <span className="text-xs font-semibold text-slate-700">About Me</span>
           </div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight" style={{ fontFamily: 'Space Grotesk' }}>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-4 leading-tight font-display">
             Crafting <span className="gradient-text">Digital Experiences</span>
             <br />
-            with AI & Engineering
+            with AI &amp; Engineering
           </h1>
 
           <p className="text-slate-600 text-base md:text-lg max-w-3xl leading-relaxed">
@@ -68,9 +88,9 @@ export default function About() {
               <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-4">
                 <Briefcase size={22} />
               </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Space Grotesk' }}>Current Role</h3>
+              <h3 className="text-2xl font-bold mb-3 font-display">Current Role</h3>
               <p className="text-white/90 leading-relaxed text-sm">
-                Working as <strong>Full Stack AI Engineer</strong> at <strong>Infosware Pvt. Ltd.</strong>, building scalable AI-driven applications. Contributing to <strong>RAG systems</strong>, <strong>NFC/RFID platforms</strong>, and <strong>defence-sector inventory systems</strong>.
+                Working as <strong>Full Stack AI Engineer</strong> at <strong>Infosware Pvt. Ltd.</strong>, building scalable AI-driven applications. Contributing to <strong>RAG systems</strong>, backend platforms, and <strong>defence-sector inventory systems</strong>.
               </p>
             </div>
           </motion.div>
@@ -86,9 +106,9 @@ export default function About() {
               <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center mb-4">
                 <Sparkles size={22} />
               </div>
-              <h3 className="text-2xl font-bold mb-3" style={{ fontFamily: 'Space Grotesk' }}>Founder Journey</h3>
+              <h3 className="text-2xl font-bold mb-3 font-display">Founder Journey</h3>
               <p className="text-white/90 leading-relaxed text-sm">
-                Founder of <strong>VerifyLayer AI</strong> — an AI-powered scam detection & identity protection platform protecting <strong>50,000+ Indians</strong> daily. Combining AI intelligence with real-world engineering.
+                Founder of <strong>VerifyLayer AI</strong> — an AI-powered scam detection &amp; identity protection platform protecting <strong>50,000+ Indians</strong> daily. Combining AI intelligence with real-world engineering.
               </p>
             </div>
           </motion.div>
@@ -101,7 +121,7 @@ export default function About() {
           viewport={{ once: true }}
           className="mb-8"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5" style={{ fontFamily: 'Space Grotesk' }}>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 font-display">
             Quick Info
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -125,31 +145,36 @@ export default function About() {
           </div>
         </motion.div>
 
-        {/* Values */}
+        {/* Values - No Emojis, Using Icons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5" style={{ fontFamily: 'Space Grotesk' }}>
+          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-5 font-display">
             What I Value
           </h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-            {values.map((v, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -3 }}
-                className="bg-gradient-to-br from-white to-slate-50 border border-slate-200 rounded-2xl p-5 text-center hover:shadow-lg transition-all"
-              >
-                <div className="text-4xl mb-2">{v.icon}</div>
-                <div className="font-bold text-slate-900 mb-1">{v.title}</div>
-                <div className="text-xs text-slate-600 leading-snug">{v.description}</div>
-              </motion.div>
-            ))}
+            {values.map((v, i) => {
+              const Icon = v.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  whileHover={{ y: -3 }}
+                  className="group bg-white border border-slate-200 rounded-2xl p-5 text-center hover:shadow-lg hover:border-blue-300 transition-all"
+                >
+                  <div className={`w-12 h-12 mx-auto mb-3 rounded-2xl bg-gradient-to-br ${v.gradient} flex items-center justify-center group-hover:scale-110 transition-transform`}>
+                    <Icon size={22} className="text-white" />
+                  </div>
+                  <div className="font-bold text-slate-900 mb-1">{v.title}</div>
+                  <div className="text-xs text-slate-600 leading-snug">{v.description}</div>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </div>
