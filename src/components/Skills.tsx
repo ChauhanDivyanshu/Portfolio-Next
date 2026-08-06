@@ -103,34 +103,31 @@ export default function Skills() {
           })}
         </div>
 
-        {/* AWS Production Badge */}
+        {/* AWS Production Badge */}{/* AWS Production Experience - Professional */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 relative overflow-hidden bg-gradient-to-br from-orange-500 via-orange-600 to-red-600 rounded-3xl p-6 md:p-8 text-white"
+          className="mt-8 bg-white border border-slate-200 rounded-2xl p-6"
         >
-          <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-32 translate-x-32" />
-          <div className="relative">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center">
-                <Cloud size={22} />
-              </div>
-              <div>
-                <div className="text-xs text-white/80 uppercase tracking-wider font-semibold">AWS</div>
-                <div className="text-xl font-bold" style={{ fontFamily: 'Space Grotesk' }}>Production Experience</div>
-              </div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center">
+              <Cloud size={20} className="text-slate-700" />
             </div>
-            <p className="text-white/90 leading-relaxed max-w-3xl mb-4 text-sm md:text-base">
-              Successfully deployed and managed <strong>2+ production applications</strong> using AWS Amplify for frontend, EC2 for backend services, and RDS for database management with CI/CD pipelines.
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {['EC2', 'S3', 'RDS', 'Amplify', 'CloudWatch', 'Route 53', 'VPC', 'CodePipeline'].map((service) => (
-                <span key={service} className="px-3 py-1.5 bg-white/20 backdrop-blur rounded-lg text-xs font-semibold border border-white/20">
-                  {service}
-                </span>
-              ))}
+            <div>
+              <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">AWS Cloud</div>
+              <div className="text-lg font-bold text-slate-900 font-display">Production Experience</div>
             </div>
+          </div>
+          <p className="text-slate-700 leading-relaxed mb-4 text-sm">
+            Successfully deployed and managed <strong className="text-slate-900">2+ production applications</strong> using AWS Amplify for frontend, EC2 for backend services, and RDS for database management with CI/CD pipelines.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {['EC2', 'S3', 'RDS', 'Amplify', 'CloudWatch', 'Route 53', 'VPC', 'CodePipeline'].map((service) => (
+              <span key={service} className="px-3 py-1 bg-slate-100 border border-slate-200 rounded-md text-xs font-semibold text-slate-700 font-mono">
+                {service}
+              </span>
+            ))}
           </div>
         </motion.div>
       </div>
