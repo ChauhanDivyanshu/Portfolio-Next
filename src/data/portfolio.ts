@@ -5,8 +5,8 @@ export const personal = {
   email: "divyanshuchauhan1200@gmail.com",
   phone: "+91 9548022166",
   location: "Noida, India",
-  bio: "Full Stack AI Engineer with 2+ years of hands-on experience designing and deploying production-grade AI systems, RAG pipelines, LLM applications, and scalable backend platforms. Founder of VerifyLayer AI serving 50,000+ users. Contributed to defence-sector programmes at HAL Korwa and mentored 5+ interns in AI/ML and backend engineering.",
-  resumeUrl: "/divyanshu-chauhan-resume.pdf",
+  bio: "Full Stack AI Engineer with 2+ years of experience designing and deploying production-grade AI systems, RAG pipelines, LLM applications, and scalable backend platforms. Founder of VerifyLayer AI. Contributed to defence-sector programmes at HAL Korwa and mentored 5+ interns in AI/ML and backend engineering.",
+  resumeUrl: "/resume.pdf",
   social: {
     github: "https://github.com/ChauhanDivyanshu",
     linkedin: "https://www.linkedin.com/in/iamdivyanshuchauhan/",
@@ -162,23 +162,23 @@ export const projects = [
   {
     id: "verifylayer",
     title: "VerifyLayer AI — Scam Protection Platform",
-    subtitle: "AI-powered fraud detection & identity protection for 50K+ users",
+    subtitle: "AI-powered fraud detection & identity protection platform",
     company: "Founder & Lead Engineer",
     period: "2024 - Present",
-    status: "Live · 50,000+ Users",
+    status: "Live in Production",
     gradient: "from-purple-600 via-pink-500 to-red-500",
     iconType: "shield",
     visualType: "ai-pipeline",
     description: "Founded and built India's AI-powered scam protection platform from ground up. Full-stack ownership from ML models to production deployment. Uses ensemble ML models, real-time threat intelligence APIs, and LLM-based analysis to protect users from phone scams, phishing, and identity theft.",
     highlights: [
-      { metric: "50K+", label: "Active Users" },
       { metric: "95%", label: "Detection Rate" },
       { metric: "<200ms", label: "API Response" },
       { metric: "24/7", label: "Uptime" },
+      { metric: "Full-Stack", label: "Ownership" },
     ],
     features: [
       "Real-time scam detection using ensemble ML models and LLM analysis",
-      "REST API architecture serving 10K+ requests/day",
+      "REST API architecture with authentication and rate limiting",
       "Full-stack: Next.js frontend, Node.js/Python backend, PostgreSQL + Redis",
       "AWS deployment with auto-scaling, CI/CD via GitHub Actions",
       "User authentication, subscription management, admin dashboard",
@@ -387,7 +387,7 @@ export const achievements = [
   {
     icon: "Rocket",
     title: "Founded VerifyLayer AI",
-    description: "Built India's AI-powered scam protection platform from scratch — 50,000+ active users protected daily",
+    description: "Built India's AI-powered scam protection platform from scratch — full ownership from ML models to production deployment",
   },
   {
     icon: "Users",

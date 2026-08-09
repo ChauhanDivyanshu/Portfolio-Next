@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-5 left-1/2 -translate-x-1/2 z-50 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full px-3 py-2 flex items-center gap-1 shadow-lg transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-white/95 backdrop-blur-md border border-slate-200 rounded-full px-2 py-1.5 flex items-center gap-0.5 shadow-lg transition-all duration-300 ${
         showNavbar
           ? 'opacity-100 translate-y-0'
           : 'opacity-0 -translate-y-24 pointer-events-none'
@@ -53,31 +53,33 @@ export default function Navbar() {
           <Link
             key={path}
             href={path}
-            className={`group relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+            className={`group relative w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
               isActive
                 ? 'bg-blue-50 text-blue-600'
                 : 'text-slate-700 hover:bg-slate-100 hover:text-blue-600'
             }`}
             aria-label={label}
           >
-            <Icon size={18} strokeWidth={2} />
-            <span className="absolute top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
+            <Icon size={17} strokeWidth={2} />
+            <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
               {label}
             </span>
           </Link>
         );
       })}
 
-      {/* Resume Download Button */}
-      <div className="w-px h-6 bg-slate-200 mx-1" />
+      {/* Small Resume Download Button */}
+      <div className="w-px h-5 bg-slate-200 mx-1" />
       <a
-        href={withBasePath('/divyanshu-chauhan-resume.pdf')}
-        download
-        className="group flex items-center gap-1.5 px-3 h-10 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full text-xs font-semibold hover:shadow-md transition-all"
+        href={withBasePath('/resume.pdf')}
+        download="Divyanshu-Chauhan-Resume.pdf"
+        className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-md transition-all"
         aria-label="Download Resume"
       >
-        <Download size={14} />
-        <span className="hidden md:inline">Resume</span>
+        <Download size={15} strokeWidth={2.5} />
+        <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
+          Download Resume
+        </span>
       </a>
     </nav>
   );

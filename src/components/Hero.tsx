@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Cpu, Code2, Download, Server, Users } from 'lucide-react';
+import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Server, Users, Cpu, Code2 } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personal, roles, stats, highlights } from '@/data/portfolio';
 import { withBasePath } from '@/lib/utils';
@@ -42,14 +42,9 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIdx]);
 
   return (
-    <section className="min-h-screen pt-20 pb-12 relative overflow-hidden">
-      {/* Animated blobs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" />
-      <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{ animationDelay: '2s' }} />
-      <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob" style={{ animationDelay: '4s' }} />
-
-      <div className="container-custom relative">
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-12 items-center">
+    <section className="min-h-[calc(100vh-2rem)] pt-20 pb-8 relative overflow-hidden flex items-center">
+      <div className="container-custom relative w-full">
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -61,7 +56,7 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full mb-6 shadow-sm"
+              className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full mb-4 shadow-sm"
             >
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75" />
@@ -71,84 +66,74 @@ export default function Hero() {
             </motion.div>
 
             {/* Greeting */}
-            <p className="text-slate-500 text-lg mb-3 font-display">
+            <p className="text-slate-500 text-base mb-2 font-display">
               Hello, I&apos;m
             </p>
 
             {/* Name */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 mb-4 leading-[0.95] tracking-tight font-display">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-3 leading-[0.95] tracking-tight font-display">
               Divyanshu
               <br />
               <span className="gradient-text">Chauhan</span>
             </h1>
 
-            {/* Role with better structure */}
-            <div className="text-xl md:text-2xl text-slate-700 font-medium mb-6 min-h-[3rem] flex flex-wrap items-baseline gap-x-2">
+            {/* Role */}
+            <div className="text-lg md:text-xl text-slate-700 font-medium mb-4 min-h-[2.5rem] flex flex-wrap items-baseline gap-x-2">
               <span>Building</span>
-              <span className="text-blue-600 font-bold inline-block min-w-[280px]">
+              <span className="text-blue-600 font-bold inline-block min-w-[240px]">
                 {displayText}
                 <span className="animate-pulse text-blue-600">|</span>
               </span>
             </div>
 
-            {/* Description */}
-            <p className="text-slate-600 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+            {/* Description - Compact */}
+            <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
               {personal.bio}
             </p>
 
-            {/* CTAs */}
-            {/* CTAs */}
-            <div className="flex flex-wrap items-center gap-3 mb-10">
-              <a
-                href={withBasePath('/divyanshu-chauhan-resume.pdf')}
-                download
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold text-sm hover:shadow-xl hover:-translate-y-0.5 transition-all shadow-lg"
-              >
-                <Download size={16} />
-                Download Resume
-              </a>
-
+            {/* CTAs - Compact */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-semibold text-sm hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-5 py-2.5 bg-slate-900 text-white rounded-xl font-semibold text-sm hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-slate-900/20 hover:shadow-xl hover:-translate-y-0.5"
               >
-                <Send size={16} />
+                <Send size={15} />
                 Get In Touch
-                <ArrowUpRight size={16} className="group-hover:rotate-45 transition-transform" />
+                <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform" />
               </Link>
 
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-white border border-slate-300 text-slate-900 rounded-xl font-semibold text-sm hover:border-slate-900 hover:-translate-y-0.5 transition-all"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white border border-slate-300 text-slate-900 rounded-xl font-semibold text-sm hover:border-slate-900 hover:-translate-y-0.5 transition-all"
               >
                 View Projects
-                <ArrowUpRight size={16} />
+                <ArrowUpRight size={14} />
               </Link>
 
-              <div className="flex items-center gap-2 ml-2">
+              <div className="flex items-center gap-2 ml-1">
                 <a
                   href={personal.social.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-900 hover:text-white hover:-translate-y-0.5 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-900 hover:text-white hover:-translate-y-0.5 transition-all"
                   aria-label="GitHub"
                 >
-                  <FaGithub size={18} />
+                  <FaGithub size={16} />
                 </a>
                 <a
                   href={personal.social.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-blue-600 hover:text-white hover:-translate-y-0.5 transition-all"
+                  className="w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-blue-600 hover:text-white hover:-translate-y-0.5 transition-all"
                   aria-label="LinkedIn"
                 >
-                  <FaLinkedin size={18} />
+                  <FaLinkedin size={16} />
                 </a>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {/* Stats - Compact */}
+            <div className="grid grid-cols-4 gap-3 pt-4 border-t border-slate-200">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
@@ -157,11 +142,13 @@ export default function Hero() {
                   transition={{ delay: 0.4 + i * 0.1 }}
                   className="text-left"
                 >
-                  <div className="text-3xl md:text-4xl font-bold text-slate-900 font-display">
+                  <div className="text-2xl md:text-3xl font-bold text-slate-900 font-display">
                     {stat.value}
                   </div>
-                  <div className="text-xs text-slate-500 font-medium mt-1">
-                    {stat.label} {stat.suffix}
+                  <div className="text-[10px] text-slate-500 font-medium mt-0.5 leading-tight">
+                    {stat.label}
+                    <br />
+                    {stat.suffix}
                   </div>
                 </motion.div>
               ))}
@@ -173,9 +160,9 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative w-full max-w-[380px] mx-auto aspect-square"
+            className="relative w-full max-w-[340px] mx-auto aspect-square"
           >
-            {/* Outer rotating gradient ring */}
+            {/* Outer gradient ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500" style={{ padding: '3px' }}>
               <div className="w-full h-full rounded-full bg-white" />
             </div>
@@ -183,7 +170,7 @@ export default function Hero() {
             {/* Middle dashed ring */}
             <div className="absolute inset-3 rounded-full border-2 border-dashed border-blue-300/60" />
 
-            {/* Inner Image Container */}
+            {/* Inner Image */}
             <div className="absolute inset-6 rounded-full overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 shadow-2xl">
               <Image
                 src={withBasePath('/divyanshu.jpg')}
@@ -238,32 +225,6 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Highlights Grid */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-3"
-        >
-          {highlights.map((item, i) => {
-            const Icon = iconMap[item.icon] || Sparkles;
-            return (
-              <motion.div
-                key={i}
-                whileHover={{ y: -4 }}
-                className="group relative bg-white border border-slate-200 rounded-2xl p-4 overflow-hidden hover:shadow-lg transition-all"
-              >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity`} />
-                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-3`}>
-                  <Icon size={18} className="text-white" />
-                </div>
-                <div className="text-sm font-bold text-slate-900 mb-1">{item.title}</div>
-                <div className="text-xs text-slate-500 leading-snug">{item.description}</div>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );

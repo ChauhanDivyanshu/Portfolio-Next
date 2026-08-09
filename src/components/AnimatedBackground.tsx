@@ -12,55 +12,117 @@ export default function AnimatedBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    let width = window.innerWidth;
+    let height = window.innerHeight;
 
-    // Neural network nodes
-    const nodes: { x: number; y: number; vx: number; vy: number }[] = [];
-    const nodeCount = 60;
+    canvas.width = width;
+    canvas.height = height;
 
-    for (let i = 0; i < nodeCount; i++) {
-      nodes.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
+    // Particle configuration
+    const particleCount = 80;
+    const maxDistance = 150;
+    const mouseRadius = 200;
+
+    interface Particle {
+      x: number;
+      y: number;
+      vx: number;
+      vy: number;
+      size: number;
+      opacity: number;
+    }
+
+    const particles: Particle[] = [];
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1,
+        opacity: Math.random() * 0.5 + 0.3,
       });
     }
+
+    let mouseX = -1000;
+    let mouseY = -1000;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
 
     let animationId: number;
 
     const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.clearRect(0, 0, width, height);
 
-      // Update and draw nodes
-      nodes.forEach((node) => {
-        node.x += node.vx;
-        node.y += node.vy;
+      // Update particles
+      particles.forEach((p) => {
+        // Mouse interaction
+        const dx = mouseX - p.x;
+        const dy = mouseY - p.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (node.x < 0 || node.x > canvas.width) node.vx *= -1;
-        if (node.y < 0 || node.y > canvas.height) node.vy *= -1;
+        if (distance < mouseRadius) {
+          const force = (mouseRadius - distance) / mouseRadius;
+          p.vx -= (dx / distance) * force * 0.02;
+          p.vy -= (dy / distance) * force * 0.02;
+        }
+
+        // Update position
+        p.x += p.vx;
+        p.y += p.vy;
+
+        // Damping
+        p.vx *= 0.99;
+        p.vy *= 0.99;
+
+        // Boundaries
+        if (p.x < 0) p.x = width;
+        if (p.x > width) p.x = 0;
+        if (p.y < 0) p.y = height;
+        if (p.y > height) p.y = 0;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
+        gradient.addColorStop(0, `rgba(59, 130, 246, ${p.opacity})`);
+        gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
+        ctx.fillStyle = gradient;
+        ctx.fill();
 
         ctx.beginPath();
-        ctx.arc(node.x, node.y, 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(59, 130, 246, 0.4)';
+        ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(59, 130, 246, ${p.opacity * 1.5})`;
         ctx.fill();
       });
 
       // Draw connections
-      for (let i = 0; i < nodes.length; i++) {
-        for (let j = i + 1; j < nodes.length; j++) {
-          const dx = nodes[i].x - nodes[j].x;
-          const dy = nodes[i].y - nodes[j].y;
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 130) {
-            const opacity = (1 - distance / 130) * 0.15;
+          if (distance < maxDistance) {
+            const opacity = (1 - distance / maxDistance) * 0.2;
+            const gradient = ctx.createLinearGradient(
+              particles[i].x, particles[i].y,
+              particles[j].x, particles[j].y
+            );
+            gradient.addColorStop(0, `rgba(59, 130, 246, ${opacity})`);
+            gradient.addColorStop(1, `rgba(139, 92, 246, ${opacity})`);
+            
             ctx.beginPath();
-            ctx.moveTo(nodes[i].x, nodes[i].y);
-            ctx.lineTo(nodes[j].x, nodes[j].y);
-            ctx.strokeStyle = `rgba(139, 92, 246, ${opacity})`;
-            ctx.lineWidth = 0.5;
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 0.8;
             ctx.stroke();
           }
         }
@@ -72,13 +134,16 @@ export default function AnimatedBackground() {
     animate();
 
     const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width;
+      canvas.height = height;
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
     };
@@ -88,7 +153,7 @@ export default function AnimatedBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0, opacity: 0.6 }}
+      style={{ zIndex: 0, opacity: 0.5 }}
     />
   );
 }
