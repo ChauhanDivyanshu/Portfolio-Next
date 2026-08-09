@@ -16,12 +16,12 @@ export const personal = {
 };
 
 export const roles = [
-  "AI Engineer",
-  "Full Stack Developer",
-  "Backend Engineer",
-  "GenAI Specialist",
-  "RAG System Architect",
-  "MLOps Engineer",
+  "AI Systems",
+  "RAG Pipelines",
+  "Backend APIs",
+  "LLM Applications",
+  "Full Stack Apps",
+  "Cloud Solutions",
 ];
 
 export const stats = [

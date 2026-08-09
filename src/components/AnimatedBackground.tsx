@@ -14,119 +14,100 @@ export default function AnimatedBackground() {
 
     let width = window.innerWidth;
     let height = window.innerHeight;
+    let dpr = window.devicePixelRatio || 1;
 
-    canvas.width = width;
-    canvas.height = height;
+    const setCanvasSize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = width * dpr;
+      canvas.height = height * dpr;
+      canvas.style.width = `${width}px`;
+      canvas.style.height = `${height}px`;
+      ctx.scale(dpr, dpr);
+    };
 
-    // Particle configuration
-    const particleCount = 80;
-    const maxDistance = 150;
-    const mouseRadius = 200;
+    setCanvasSize();
 
-    interface Particle {
+    // Subtle floating orbs
+    interface Orb {
       x: number;
       y: number;
       vx: number;
       vy: number;
-      size: number;
+      radius: number;
+      color: string;
       opacity: number;
     }
 
-    const particles: Particle[] = [];
+    const colors = [
+      'rgba(59, 130, 246, 0.15)',   // blue
+      'rgba(139, 92, 246, 0.15)',   // purple
+      'rgba(236, 72, 153, 0.12)',   // pink
+      'rgba(34, 211, 238, 0.12)',   // cyan
+    ];
 
-    for (let i = 0; i < particleCount; i++) {
-      particles.push({
+    const orbs: Orb[] = [];
+    const orbCount = 6;
+
+    for (let i = 0; i < orbCount; i++) {
+      orbs.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        vx: (Math.random() - 0.5) * 0.4,
-        vy: (Math.random() - 0.5) * 0.4,
-        size: Math.random() * 2 + 1,
-        opacity: Math.random() * 0.5 + 0.3,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+        radius: Math.random() * 200 + 150,
+        color: colors[i % colors.length],
+        opacity: Math.random() * 0.4 + 0.3,
       });
     }
 
-    let mouseX = -1000;
-    let mouseY = -1000;
-
-    const handleMouseMove = (e: MouseEvent) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
+    // Subtle grid dots
+    const drawDots = () => {
+      const spacing = 40;
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.15)';
+      for (let x = 0; x < width; x += spacing) {
+        for (let y = 0; y < height; y += spacing) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
     };
-
-    window.addEventListener('mousemove', handleMouseMove);
 
     let animationId: number;
 
     const animate = () => {
-      ctx.clearRect(0, 0, width, height);
+      // Clear with light background
+      ctx.fillStyle = '#fafafa';
+      ctx.fillRect(0, 0, width, height);
 
-      // Update particles
-      particles.forEach((p) => {
-        // Mouse interaction
-        const dx = mouseX - p.x;
-        const dy = mouseY - p.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
+      // Draw dots
+      drawDots();
 
-        if (distance < mouseRadius) {
-          const force = (mouseRadius - distance) / mouseRadius;
-          p.vx -= (dx / distance) * force * 0.02;
-          p.vy -= (dy / distance) * force * 0.02;
-        }
+      // Update and draw orbs (blurred blobs)
+      orbs.forEach((orb) => {
+        orb.x += orb.vx;
+        orb.y += orb.vy;
 
-        // Update position
-        p.x += p.vx;
-        p.y += p.vy;
+        // Bounce off edges
+        if (orb.x < -orb.radius) orb.x = width + orb.radius;
+        if (orb.x > width + orb.radius) orb.x = -orb.radius;
+        if (orb.y < -orb.radius) orb.y = height + orb.radius;
+        if (orb.y > height + orb.radius) orb.y = -orb.radius;
 
-        // Damping
-        p.vx *= 0.99;
-        p.vy *= 0.99;
+        // Draw radial gradient
+        const gradient = ctx.createRadialGradient(
+          orb.x, orb.y, 0,
+          orb.x, orb.y, orb.radius
+        );
+        gradient.addColorStop(0, orb.color);
+        gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
 
-        // Boundaries
-        if (p.x < 0) p.x = width;
-        if (p.x > width) p.x = 0;
-        if (p.y < 0) p.y = height;
-        if (p.y > height) p.y = 0;
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
-        const gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size * 3);
-        gradient.addColorStop(0, `rgba(59, 130, 246, ${p.opacity})`);
-        gradient.addColorStop(1, 'rgba(139, 92, 246, 0)');
         ctx.fillStyle = gradient;
-        ctx.fill();
-
         ctx.beginPath();
-        ctx.arc(p.x, p.y, p.size * 0.5, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(59, 130, 246, ${p.opacity * 1.5})`;
+        ctx.arc(orb.x, orb.y, orb.radius, 0, Math.PI * 2);
         ctx.fill();
       });
-
-      // Draw connections
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < maxDistance) {
-            const opacity = (1 - distance / maxDistance) * 0.2;
-            const gradient = ctx.createLinearGradient(
-              particles[i].x, particles[i].y,
-              particles[j].x, particles[j].y
-            );
-            gradient.addColorStop(0, `rgba(59, 130, 246, ${opacity})`);
-            gradient.addColorStop(1, `rgba(139, 92, 246, ${opacity})`);
-            
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = gradient;
-            ctx.lineWidth = 0.8;
-            ctx.stroke();
-          }
-        }
-      }
 
       animationId = requestAnimationFrame(animate);
     };
@@ -134,16 +115,12 @@ export default function AnimatedBackground() {
     animate();
 
     const handleResize = () => {
-      width = window.innerWidth;
-      height = window.innerHeight;
-      canvas.width = width;
-      canvas.height = height;
+      setCanvasSize();
     };
 
     window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationId);
     };
@@ -153,7 +130,7 @@ export default function AnimatedBackground() {
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none"
-      style={{ zIndex: 0, opacity: 0.5 }}
+      style={{ zIndex: 0 }}
     />
   );
 }

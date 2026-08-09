@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, User, Sparkles, Layers, Briefcase, Mail, Download } from 'lucide-react';
+import { Home, User, Sparkles, Layers, Briefcase, Mail, FileDown } from 'lucide-react';
 import { withBasePath } from '@/lib/utils';
 
 const navItems = [
@@ -60,25 +60,25 @@ export default function Navbar() {
             }`}
             aria-label={label}
           >
-            <Icon size={17} strokeWidth={2} />
-            <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
+            <Icon size={16} strokeWidth={2} />
+            <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
               {label}
             </span>
           </Link>
         );
       })}
 
-      {/* Small Resume Download Button */}
-      <div className="w-px h-5 bg-slate-200 mx-1" />
+      {/* Small Resume Download - Same size as other nav items */}
+      <div className="w-px h-4 bg-slate-300 mx-0.5" />
       <a
         href={withBasePath('/resume.pdf')}
         download="Divyanshu-Chauhan-Resume.pdf"
-        className="group relative flex items-center justify-center w-9 h-9 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:shadow-md transition-all"
+        className="group relative w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all"
         aria-label="Download Resume"
       >
-        <Download size={15} strokeWidth={2.5} />
-        <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
-          Download Resume
+        <FileDown size={16} strokeWidth={2} />
+        <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
+          Resume
         </span>
       </a>
     </nav>

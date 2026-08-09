@@ -17,10 +17,10 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background: #fafafa;
   color: #0a0a0a;
   overflow-x: hidden;
   min-height: 100vh;
+  background: #fafafa;
 }
 
 main {

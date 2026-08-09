@@ -42,9 +42,10 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIdx]);
 
   return (
-    <section className="min-h-[calc(100vh-2rem)] pt-20 pb-8 relative overflow-hidden flex items-center">
-      <div className="container-custom relative w-full">
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-8 items-center">
+    <section className="pt-20 pb-12 relative overflow-hidden">
+      <div className="container-custom relative">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center mb-10">
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -77,21 +78,21 @@ export default function Hero() {
               <span className="gradient-text">Chauhan</span>
             </h1>
 
-            {/* Role */}
-            <div className="text-lg md:text-xl text-slate-700 font-medium mb-4 min-h-[2.5rem] flex flex-wrap items-baseline gap-x-2">
+            {/* Role - Fixed width so text doesn't cut */}
+            <div className="text-lg md:text-xl text-slate-700 font-medium mb-4 h-8 flex items-baseline gap-x-2">
               <span>Building</span>
-              <span className="text-blue-600 font-bold inline-block min-w-[240px]">
+              <span className="text-blue-600 font-bold min-w-[280px] md:min-w-[320px] inline-block">
                 {displayText}
                 <span className="animate-pulse text-blue-600">|</span>
               </span>
             </div>
 
-            {/* Description - Compact */}
+            {/* Description */}
             <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 max-w-xl">
               {personal.bio}
             </p>
 
-            {/* CTAs - Compact */}
+            {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <Link
                 href="/contact"
@@ -132,7 +133,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Stats - Compact */}
+            {/* Stats */}
             <div className="grid grid-cols-4 gap-3 pt-4 border-t border-slate-200">
               {stats.map((stat, i) => (
                 <motion.div
@@ -225,6 +226,32 @@ export default function Hero() {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* Highlights Grid - THIS WAS MISSING! */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.8 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-3"
+        >
+          {highlights.map((item, i) => {
+            const Icon = iconMap[item.icon] || Sparkles;
+            return (
+              <motion.div
+                key={i}
+                whileHover={{ y: -4 }}
+                className="group relative bg-white border border-slate-200 rounded-2xl p-4 overflow-hidden hover:shadow-lg transition-all"
+              >
+                <div className={`absolute inset-0 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-5 transition-opacity`} />
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${item.gradient} flex items-center justify-center mb-3`}>
+                  <Icon size={18} className="text-white" />
+                </div>
+                <div className="text-sm font-bold text-slate-900 mb-1">{item.title}</div>
+                <div className="text-xs text-slate-500 leading-snug">{item.description}</div>
+              </motion.div>
+            );
+          })}
+        </motion.div>
       </div>
     </section>
   );
