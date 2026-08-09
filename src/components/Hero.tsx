@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Server, Users, Cpu, Code2 } from 'lucide-react';
+import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Server, Users, Cpu, Code2, Download } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personal, roles, stats, highlights } from '@/data/portfolio';
 import { withBasePath } from '@/lib/utils';
@@ -42,10 +42,10 @@ export default function Hero() {
   }, [displayText, isDeleting, roleIdx]);
 
   return (
-    <section className="pt-20 pb-12 relative overflow-hidden">
+    <section className="pt-20 pb-8 relative overflow-hidden">
       <div className="container-custom relative">
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center mb-10">
+        <div className="grid lg:grid-cols-[1.4fr_1fr] gap-10 items-center mb-8">
           {/* LEFT CONTENT */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -78,10 +78,10 @@ export default function Hero() {
               <span className="gradient-text">Chauhan</span>
             </h1>
 
-            {/* Role - Fixed width so text doesn't cut */}
+            {/* Role - Fixed width */}
             <div className="text-lg md:text-xl text-slate-700 font-medium mb-4 h-8 flex items-baseline gap-x-2">
               <span>Building</span>
-              <span className="text-blue-600 font-bold min-w-[280px] md:min-w-[320px] inline-block">
+              <span className="text-blue-600 font-bold min-w-[280px] md:min-w-[340px] inline-block">
                 {displayText}
                 <span className="animate-pulse text-blue-600">|</span>
               </span>
@@ -92,7 +92,7 @@ export default function Hero() {
               {personal.bio}
             </p>
 
-            {/* CTAs */}
+            {/* CTAs with Resume Button */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
               <Link
                 href="/contact"
@@ -111,6 +111,7 @@ export default function Hero() {
                 <ArrowUpRight size={14} />
               </Link>
 
+              {/* Social Icons + Resume */}
               <div className="flex items-center gap-2 ml-1">
                 <a
                   href={personal.social.github}
@@ -130,26 +131,34 @@ export default function Hero() {
                 >
                   <FaLinkedin size={16} />
                 </a>
+                {/* NEW - Resume Button next to LinkedIn */}
+                <a
+                  href={withBasePath('/resume.pdf')}
+                  download="Divyanshu-Chauhan-Resume.pdf"
+                  className="group inline-flex items-center gap-1.5 h-10 px-4 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold text-xs hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  aria-label="Download Resume"
+                >
+                  <Download size={14} />
+                  Resume
+                </a>
               </div>
             </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-4 gap-3 pt-4 border-t border-slate-200">
+            {/* Stats - Bigger to prevent cropping */}
+            <div className="grid grid-cols-4 gap-4 pt-5 border-t border-slate-200">
               {stats.map((stat, i) => (
                 <motion.div
                   key={i}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4 + i * 0.1 }}
-                  className="text-left"
                 >
-                  <div className="text-2xl md:text-3xl font-bold text-slate-900 font-display">
+                  <div className="text-3xl md:text-4xl font-bold text-slate-900 font-display leading-none mb-1">
                     {stat.value}
                   </div>
-                  <div className="text-[10px] text-slate-500 font-medium mt-0.5 leading-tight">
-                    {stat.label}
-                    <br />
-                    {stat.suffix}
+                  <div className="text-xs text-slate-500 font-medium leading-tight">
+                    <div>{stat.label}</div>
+                    <div>{stat.suffix}</div>
                   </div>
                 </motion.div>
               ))}
@@ -163,15 +172,12 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative w-full max-w-[340px] mx-auto aspect-square"
           >
-            {/* Outer gradient ring */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500" style={{ padding: '3px' }}>
               <div className="w-full h-full rounded-full bg-white" />
             </div>
 
-            {/* Middle dashed ring */}
             <div className="absolute inset-3 rounded-full border-2 border-dashed border-blue-300/60" />
 
-            {/* Inner Image */}
             <div className="absolute inset-6 rounded-full overflow-hidden bg-gradient-to-br from-blue-50 to-purple-50 shadow-2xl">
               <Image
                 src={withBasePath('/divyanshu.jpg')}
@@ -185,7 +191,6 @@ export default function Hero() {
               />
             </div>
 
-            {/* Floating badge - Top Right */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity }}
@@ -200,7 +205,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Floating badge - Bottom Right */}
             <motion.div
               animate={{ y: [0, 10, 0] }}
               transition={{ duration: 3, repeat: Infinity, delay: 1 }}
@@ -215,7 +219,6 @@ export default function Hero() {
               </div>
             </motion.div>
 
-            {/* Location Badge - Left */}
             <motion.div
               animate={{ x: [0, -4, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
@@ -227,7 +230,7 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* Highlights Grid - THIS WAS MISSING! */}
+        {/* Highlights Grid */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}

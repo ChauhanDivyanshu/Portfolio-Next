@@ -3,8 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Home, User, Sparkles, Layers, Briefcase, Mail, FileDown } from 'lucide-react';
-import { withBasePath } from '@/lib/utils';
+import { Home, User, Sparkles, Layers, Briefcase, Mail } from 'lucide-react';
 
 const navItems = [
   { path: '/', icon: Home, label: 'Home' },
@@ -53,34 +52,20 @@ export default function Navbar() {
           <Link
             key={path}
             href={path}
-            className={`group relative w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200 ${
+            className={`group relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
               isActive
                 ? 'bg-blue-50 text-blue-600'
                 : 'text-slate-700 hover:bg-slate-100 hover:text-blue-600'
             }`}
             aria-label={label}
           >
-            <Icon size={16} strokeWidth={2} />
-            <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
+            <Icon size={17} strokeWidth={2} />
+            <span className="absolute top-12 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[11px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
               {label}
             </span>
           </Link>
         );
       })}
-
-      {/* Small Resume Download - Same size as other nav items */}
-      <div className="w-px h-4 bg-slate-300 mx-0.5" />
-      <a
-        href={withBasePath('/resume.pdf')}
-        download="Divyanshu-Chauhan-Resume.pdf"
-        className="group relative w-9 h-9 rounded-full flex items-center justify-center text-slate-700 hover:bg-blue-50 hover:text-blue-600 transition-all"
-        aria-label="Download Resume"
-      >
-        <FileDown size={16} strokeWidth={2} />
-        <span className="absolute top-11 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-2.5 py-1 rounded text-[10px] font-medium whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none hidden md:block">
-          Resume
-        </span>
-      </a>
     </nav>
   );
 }

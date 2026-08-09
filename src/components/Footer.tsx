@@ -7,7 +7,7 @@ import { personal } from '@/data/portfolio';
 
 export default function Footer() {
   return (
-    <footer className="mt-20 border-t border-slate-200 bg-slate-50 relative z-10">
+    <footer className="mt-8 border-t border-slate-200 bg-slate-50 relative z-10">
       <div className="container-custom py-10">
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
