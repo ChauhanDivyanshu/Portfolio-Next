@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Cpu, Code2 } from 'lucide-react';
+import { Send, MapPin, Sparkles, Rocket, ArrowUpRight, Shield, Cpu, Code2, Download, Server, Users } from 'lucide-react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { personal, roles, stats, highlights } from '@/data/portfolio';
 import { withBasePath } from '@/lib/utils';
@@ -15,6 +15,8 @@ const iconMap: Record<string, React.ComponentType<{ size?: number; className?: s
   Shield,
   Cpu,
   Code2,
+  Server,
+  Users,
 };
 
 export default function Hero() {
@@ -95,10 +97,20 @@ export default function Hero() {
             </p>
 
             {/* CTAs */}
+            {/* CTAs */}
             <div className="flex flex-wrap items-center gap-3 mb-10">
+              <a
+                href={withBasePath('/divyanshu-chauhan-resume.pdf')}
+                download
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl font-semibold text-sm hover:shadow-xl hover:-translate-y-0.5 transition-all shadow-lg"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
+
               <Link
                 href="/contact"
-                className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-semibold text-sm hover:bg-gradient-to-r hover:from-blue-600 hover:to-purple-600 transition-all shadow-lg shadow-slate-900/20 hover:shadow-xl hover:-translate-y-0.5"
+                className="group inline-flex items-center gap-2 px-6 py-3 bg-slate-900 text-white rounded-xl font-semibold text-sm hover:bg-slate-800 transition-all shadow-lg hover:-translate-y-0.5"
               >
                 <Send size={16} />
                 Get In Touch
